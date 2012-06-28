@@ -172,30 +172,30 @@ static GameMenuViewController * menu;
 	//remove deleted objects
 	std::vector<b2Body *>toDestroy; 
 	std::vector<MyContact>::iterator pos;
-	for(pos = self.myContactListener->_contacts.begin(); pos != self.myContactListener->_contacts.end(); ++pos) {
-		MyContact contact = *pos;
-	
-		b2Body *bodyA = contact.fixtureA->GetBody();
-		b2Body *bodyB = contact.fixtureB->GetBody();
+//	for(pos = self.myContactListener->_contacts.begin(); pos != self.myContactListener->_contacts.end(); ++pos) {
+//		MyContact contact = *pos;
+//	
+//		b2Body *bodyA = contact.fixtureA->GetBody();
+//		b2Body *bodyB = contact.fixtureB->GetBody();
+//		
+//		if ([((id)bodyA->GetUserData()) isKindOfClass:[Bullet class]]) {
+//			//self.myContactListener->_contacts.erase(pos);
+//			bodyA->SetActive(false);
+//			bodyA->SetTransform(b2Vec2(-10000,0), 0);
+//			//world->DestroyBody(bodyA);
+//			NSLog(@"The bullet colision");
+//		}
+//		else if ([((id)bodyB->GetUserData()) isKindOfClass:[Bullet class]]) {
+//			//self.myContactListener->_contacts.erase(pos);
+//			bodyB->SetActive(false);
+//			bodyB->SetTransform(b2Vec2(-10000,0), 0);
+//			//world->DestroyBody(bodyB);
+//			NSLog(@"The bullet colision");
+//			
+//			
+//		}
 		
-		if ([((id)bodyA->GetUserData()) isKindOfClass:[Bullet class]]) {
-			self.myContactListener->_contacts.erase(pos);
-			bodyA->SetActive(false);
-			bodyA->SetTransform(b2Vec2(-10000,0), 0);
-			world->DestroyBody(bodyA);
-			NSLog(@"The bullet colision");
-		}
-		else if ([((id)bodyB->GetUserData()) isKindOfClass:[Bullet class]]) {
-			self.myContactListener->_contacts.erase(pos);
-			bodyB->SetActive(false);
-			bodyB->SetTransform(b2Vec2(-10000,0), 0);
-			world->DestroyBody(bodyB);
-			NSLog(@"The bullet colision");
-			
-			
-		}
-		
-	}
+	//}
 	
 	//Iterate over the bodies in the physics world
 	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
